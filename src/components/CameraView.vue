@@ -15,7 +15,7 @@
   
   export default {
     mixins: [postCat],
-    data () { 
+    data () {
       return {
         mediaStream: null
       }
@@ -43,8 +43,7 @@
         this.playSound(sound)
         return imageCapture.takePhoto().then(blob => {
           storage.ref().child(`images/picture-${new Date().getTime()}`).put(blob).then(res => {
-            this.postCat(res.metadata.downloadURLs[0], 'Titulo de prueba')
-            this.$router.go('/')
+            this.postCat(res.metadata.downloadURLs[0], 'Imagenes de prueba')
           })
         })
       }

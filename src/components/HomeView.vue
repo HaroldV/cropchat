@@ -3,25 +3,25 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--3-col mdl-cell mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
-        <div v-for="picture in getCats()" class="image-card" @click="displayDetails(picture['.key'])">
-          <div class="image-card__picture">
+        <div v-for="picture in getCats()" class="image-card">                    
+          <div class="image-card__picture">            
+            <span class="close" @click="removeItem(picture['.key'])"><i class="material-icons">close</i></span>
             <img :src="picture.url" />
           </div>
-          <div class="image-card__comment mdl-card__actions">
+          <div class="image-card__comment mdl-card__actions" @click="displayDetails(picture['.key'])">
             <span>{{ picture.comment }} </span>
           </div>
         </div>
       </div>
     </div>
     <router-link class="add-picture-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored" to="/post">
-      <i class="material-icons">add</i>
+      <i class="material-icons">add</i>      
     </router-link>
     <router-link class="take-picture-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored" to="/camera">
       <i class="material-icons">camera_alt</i>
     </router-link>
   </div>
 </template>
-
 <script>
 export default {
   data () {
@@ -53,6 +53,13 @@ export default {
         })
         localStorage.setItem('cats', JSON.stringify(cachedCats))
       })
+    },
+    removeItem (id) {
+      var result = confirm('Desea eliminar esta foto ?')
+      if (result) {
+        this.$root.$firebaseRefs.cat.child(id).remove()
+        this.$router.push('/')
+      }
     }
   },
 
@@ -71,8 +78,7 @@ export default {
   }
   .image-card {
     position: relative;
-    margin-bottom: 8px;
-    cursor: pointer;
+    margin-bottom: 8px;    
   }
   .image-card__picture > img {
     width:100%;
@@ -84,6 +90,7 @@ export default {
     padding: 16px;
     text-align: right;
     background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
   }
   .image-card__comment > span {
     color: #fff;
@@ -95,5 +102,10 @@ export default {
     right: 24px;
     bottom: 90px;
     z-index: 5;
+  }
+  .close{
+    position: absolute;
+    color: red;
+    cursor: pointer;
   }
 </style>

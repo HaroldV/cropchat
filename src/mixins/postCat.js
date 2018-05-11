@@ -3,9 +3,10 @@ const postCat = {
     postCat (catUrl, title) {
       this.$root.$firebaseRefs.cat.push(
         {
-          'url': this.catUrl,
-          'title': this.title,
-          'created': -1 * new Date().getTime()
+          'url': catUrl,
+          'comment': title,
+          'info': title,
+          'created_at': -1 * new Date().getTime()
         }
       ).then(
         this.$router.go(-1)

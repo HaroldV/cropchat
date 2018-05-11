@@ -1,4 +1,4 @@
-<template>
+<template>  
   <form>
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--8-col">
@@ -18,7 +18,7 @@
         </a>
       </div>
     </div>
-  </form>
+  </form>  
 </template>
 
 <script>
