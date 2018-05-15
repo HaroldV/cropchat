@@ -1,6 +1,6 @@
 # Cropchat
 
-> PWA (Aplicacion Web Progresiva) Vuejs + Firebase + Material Design Tutorial de: https://blog.sicara.com/a-progressive-web-application-with-vue-js-webpack-material-design-part-1-c243e2e6e402
+> PWA (Aplicacion Web Progresiva) Vuejs + Firebase + Material Design Tutorial de: https://blog.sicara.com/a-progressive-web-application-with-vue-js-webpack-material-design-part-1-c243e2e6e402 (Este tutorial esta incompleto asi que he agregado lo necesario para su total funcionalidad)
 
 ## Build Setup
 
