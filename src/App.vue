@@ -8,8 +8,8 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">CropChat</span>
       <nav class="mdl-navigation">
-        <router-link class="mdl-navigation__link" to="/" >Home</router-link>
-        <router-link class="mdl-navigation__link" to="/post" >Post a picture</router-link>
+        <router-link id="home" class="mdl-navigation__link" to="/">Home</router-link>
+        <router-link class="mdl-navigation__link" to="/post">Post a picture</router-link>
       </nav>
     </div>
     <main class="mdl-layout__content">
@@ -23,7 +23,16 @@
 <script>
 require('material-design-lite')
 export default {
-  name: 'app'
+  name: 'app',
+  mounted () {
+    var mdl = document.getElementsByClassName('mdl-navigation__link')
+    for (let i = 0; i < mdl.length; i++) {
+      mdl[i].addEventListener('click', function () {
+        document.querySelector('.mdl-layout__drawer').classList.remove('is-visible')
+        document.querySelector('.mdl-layout__obfuscator').classList.remove('is-visible')
+      })
+    }
+  }
 }
 </script>
 

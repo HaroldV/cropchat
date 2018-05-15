@@ -21,7 +21,7 @@
       }
     },
     mounted () {
-      navigator.mediaDevices.getUserMedia({ video: true })
+      navigator.mediaDevices.getUserMedia({ audio: true, video: { facingMode: { exact: 'environment' } } })
         .then(mediaStream => {
           this.mediaStream = mediaStream
           this.$refs.video.srcObject = mediaStream
